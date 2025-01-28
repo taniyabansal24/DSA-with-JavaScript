@@ -14,4 +14,4 @@ function Subarrays(arr) {
 }
 
 // Example usage
-console.log(Subarrays([1, 2, 3, 4]));
+console.log(Subarrays([1, 2, 3]));
