@@ -1,0 +1,15 @@
+Problems
+
+-- Fixed
+1. Max mim sub array of size k
+2. Ist -ve in every window size of k
+3. Count occurence of anagram
+4. Max of all subarray of size k
+5. Max of min for every window size 
+
+-- Variable
+1. Largest / smallest subarray 0 sum k
+2. Largest sub - string 0 k district character 
+3. largest of largest substring but with no repeating characters
+4. Pick toy
+5. minimum window substring

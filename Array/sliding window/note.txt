@@ -1,0 +1,106 @@
+Sliding Window Technique in Arrays
+
+a "window" that slides over the array.
+
+Identify - subary + window size + largest smallest given
+
+---
+
+Types of Sliding Window
+
+1. Fixed-size Window: Used when the problem requires finding a subarray of a specific length.
+
+2. Variable-size Window: Used when the window size is determined dynamically based on conditions.
+
+---
+
+1. Fixed-size Sliding Window 
+Example: Find the maximum sum of any subarray of size `k` in a given array.  
+
+Brute Force Approach (O(N*K))
+
+```javascript
+function maxSumBruteForce(arr, k) {
+    let maxSum = -Infinity;
+    for (let i = 0; i <= arr.length - k; i++) {
+        let sum = 0;
+        for (let j = i; j < i + k; j++) {
+            sum += arr[j];
+        }
+        maxSum = Math.max(maxSum, sum);
+    }
+    return maxSum;
+}
+console.log(maxSumBruteForce([2, 1, 5, 1, 3, 2], 3)); // Output: 9
+```
+
+🔴 Issue: Nested loops make it inefficient.
+
+---
+
+Optimized Sliding Window Approach (O(N))
+
+✅ Instead of recalculating sums, maintain a sum and update it as the window slides.
+
+```javascript
+function maxSumSlidingWindow(arr, k) {
+    let maxSum = -Infinity;
+    let windowSum = 0;
+
+    // Compute sum of first window
+    for (let i = 0; i < k; i++) {
+        windowSum += arr[i];
+    }
+    maxSum = windowSum;
+
+    // Slide the window
+    for (let i = k; i < arr.length; i++) {
+        windowSum += arr[i] - arr[i - k]; // Add new element, remove old element
+        maxSum = Math.max(maxSum, windowSum);
+    }
+
+    return maxSum;
+}
+console.log(maxSumSlidingWindow([2, 1, 5, 1, 3, 2], 3)); // Output: 9
+```
+✅ Efficient: Reduces time complexity to O(n).
+
+---
+
+2. Variable-size Sliding Window
+Example: Find the smallest subarray sum ≥ `S`. 
+
+Approach:
+1. Expand the window until sum ≥ S.
+2. Shrink the window while keeping sum ≥ S.
+3. Track the minimum window size.
+
+```javascript
+function minSubarrayLen(arr, S) {
+    let minLength = Infinity;
+    let windowSum = 0, left = 0;
+
+    for (let right = 0; right < arr.length; right++) {
+        windowSum += arr[right];
+
+        while (windowSum >= S) {
+            minLength = Math.min(minLength, right - left + 1);
+            windowSum -= arr[left];
+            left++;
+        }
+    }
+
+    return minLength === Infinity ? 0 : minLength;
+}
+console.log(minSubarrayLen([2, 3, 1, 2, 4, 3], 7)); // Output: 2
+```
+✅ Efficient: Uses O(n) time.
+
+---
+
+When to Use Sliding Window?
+
+- Problems involving contiguous subarrays.
+- Optimizing subarray properties like sum, maximum, or minimum.
+- Finding patterns (e.g., longest substring without repeating characters).
+
