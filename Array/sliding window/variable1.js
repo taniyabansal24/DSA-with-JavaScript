@@ -43,4 +43,4 @@ for (let i = k; i <= n; i++) {
     }
 }
 
-console.log(result.join(" ")); // Output: -1 -1 -7 -15 -15
+console.log(result.join(" ")); // Output: -1 -1 -7 -15 -15 0
