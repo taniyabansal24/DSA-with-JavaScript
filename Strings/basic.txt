@@ -1,0 +1,58 @@
+let text = "Hello World!";
+
+
+-- Length
+let length = text.length; 
+
+
+-- substring()
+let result = text.substring(1, 4);
+
+
+-- split()
+const myArray = text.split(" ");
+
+1. Comparion -> Don't use == use equals
+-- s1.equals(s2) this gives always a correct answer 
+
+
+2. Immutability 
+-- Reference is mutable, instance is not
+
+
+-- charAt()    // get
+let letter = text.charAt(1);
+
+
+-- change an char     // update
+convert string into array 
+let str = "Tony Stark will die";
+let arr = str.split('');
+arr[9] = '1'; // Modify the character at index 9
+str = arr.join('');
+console.log(str); // Output: "Tony Star1 will die"
+
+
+
+-- insert char   // insert
+const originalString = "Hello World";
+const charToInsert = 'a';
+const indexToInsertAt = 5;
+
+const newString = originalString.slice(0, indexToInsertAt) + charToInsert + originalString.slice(indexToInsertAt);
+console.log(newString); // Outputs: "Helloa World"
+
+
+-- delete an char    // remove
+In JavaScript, you can remove a character from a string by converting the string to an array, removing the character, and then converting it back to a string. For example, you can use the slice() method to remove a character at a specific index:
+let str = "example";
+let indexToRemove = 3;
+let newStr = str.slice(0, indexToRemove) + str.slice(indexToRemove + 1);
+console.log(newStr); // Output: "exmple"
+
+
+-- concat       // append  
+let str = "Hello";
+let char = "!";
+let result = str.concat(char);
+console.log(result);  // "Hello!"

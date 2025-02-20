@@ -31,3 +31,7 @@ for (let i = arr2.length - 1; i >= 0; i--) {
   reversed1.push(arr2[i]);
 }
 console.log("Using a New Array: ",reversed1); // [5, 4, 3, 2, 1]
+
+
+
+
